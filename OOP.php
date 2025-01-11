@@ -27,20 +27,20 @@
 // Phương thức
 // }
 // Ví dụ:
-class SinhVien{
-    // Thuộc tính
-    public $maSinhVien;
-    public $tenSinhVien;
-    public $ngaySinh;
-    // Phương thức
-    public function hoc(){
-        echo "Sinh viên đang học";
-    }
-    public function thi(){
-        echo "Sinh viên đang thi";
-    }
-}
+// class SinhVien{
+//     // Thuộc tính
+//     public $maSinhVien;
+//     public $tenSinhVien;
+//     public $ngaySinh;
+//     // Phương thức
+//     public function hoc(){
+//         echo "Sinh viên đang học";
+//     }
+//     public function thi(){
+//         echo "Sinh viên đang thi";
+//     }
+// }
 // Bài tập: Lấy ví dụ 3 đối tượng (Liệt kê thuộc tính và phương thức) 
 // Chuyển sang dạng đối tượng trong máy tính
-
+// 4 tính chất của oop
 ?>
