@@ -85,27 +85,94 @@
 // thuộc tính và phương thức của lớp cha.
 // ví dụ
 // Lớp cha
-class Animal{
-    // Thuộc tính
-    protected $name;
-    protected $color;
-    private $size;
-}
+// class Animal{
+//     // Thuộc tính
+//     protected $name;
+//     protected $color;
+//     private $size;
+// }
 // Lớp con
-class Dog extends Animal{
-    // Hằng số
-    const PI = 3.14;
-    // Thuộc tính
-    private $age;
-    // Phương thức
-    public function eatDog(){
-        echo $this->age;
-        echo $this->name;
-        echo $this->color;
-        // echo $this->size; // Không được
-    }
-}
+// class Dog extends Animal{
+//     // Hằng số
+//     const PI = 3.14;
+//     // Thuộc tính
+//     private $age;
+//     // Phương thức
+//     public function eatDog(){
+//         echo $this->age;
+//         echo $this->name;
+//         echo $this->color;
+//         // echo $this->size; // Không được
+//     }
+// }
 // Hằng số trong OOP(Constant)
 // truy cập: Tên_lớp::Tên_hằng_số
-echo Dog::PI; // 3.14
+// echo Dog::PI; // 3.14
+// Trừu tượng
+// 1 class được gọi là class trừu tượng là khi class đó chứa
+// phương thức trừu tượng
+// Class trừu tượng không thể khỏi tạo nhưng vẫn co thuộc tinh và 
+// phương thức
+// Khai báo
+abstract class Animal {
+    // Phương thức trừu tượng
+    abstract public function eat();
+    abstract public function diChuyen();
+}
+// class con
+// class Dog extends Animal{
+//     public function eat(){
+//         echo "Ăn ăn";
+//     }
+//     public function diChuyen(){
+//         echo "Đi chuyển";
+//     }
+// }
+// Đa hình
+// Đa hình không phải là 1 class -> không có thuộc tính
+// Mà chỉ các phương thức trừu tượng
+// Ví dụ
+interface DiChuyen {
+    public function diChuyen();
+}
+// class sử dụng
+class Dog implements DiChuyen{
+    public function diChuyen(){
+        echo "Đi chuyển 4 chân";
+    }
+}
+class Car implements DiChuyen{
+    public function diChuyen(){
+        echo "Đi chuyển 4 bánh xe";
+    }
+}
+// Đa hình hay Trừu tượng đều là bản thiết kế của dự án phần mềm
+// Đa hình là bản thiết kế cho các class không chung bản chất nhưng 
+// chung hành động
+// Trừu tượng là bản thiết kế cho các class chung bản chất
+// Trait
+// PHP chỉ có đơn kế thừa 
+trait TongHieu{
+    public function tinhTong($a, $b){
+        return $a + $b;
+    }
+    private function tinhHieu($a, $b){
+        return $a - $b;
+    }
+}
+trait TichThuong{
+    protected function tinhTich($a, $b){
+        return $a * $b;
+    }
+    public function tinhThuong($a, $b){
+        return $a / $b;
+    }
+}
+
+class TinhToan{
+    use TichThuong, TongHieu;
+    public function tinhToan($a, $b){
+        return $this->tinhHieu($a, $b) + $this->tinhTich($a, $b);
+    }
+}
 ?>

@@ -1,33 +1,45 @@
 <?php 
-// Kết nối, truy vấn, thao tác với CSDL
-// 2. Thực hiện truy vấn
-// 3. Thao tác với dữ liệu
-class Product{
-    // 1. Kết nối CSDL
-    // Thuộc tính giúp kết nối CSDL
-    public $host = "localhost"; 
-    // Địa chỉ IP của máy chủ chứa CSDL (có thể thay bằng IP)
-    public $dbname = "wd19312";
-    // Tên CSDL
-    public $username = "root";
-    // Tên đăng nhập CSDL
-    public $password = "";
-    // Mật khẩu CSDL
-    // Phương thức giúp kết nối CSDL
-    public function getConnection(){
-        try{
-            $conn = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname, 
-            $this->username, $this->password);
-            // Thiết lập lỗi khi thao tác với CSDL
-            $conn->setAttribute(PDO::ATTR_ERRMODE, 
-            PDO::ERRMODE_EXCEPTION);
-            $conn->exec("set names utf8");
-            echo "Kết nối thành công";
-            return $conn;
-        }catch(PDOException $e){
-            echo "Lỗi rồi fix đê: ".$e->getMessage();
-        }
+namespace App\Models;
+use App\Models\Model;
+class Product extends Model{
+    private $connection; // Thuộc tính kết nối CSDL
+    protected $table = 'products'; // Thuộc tinh chứa tên bảng
+    // Kế thừa kêt nối của Model
+    // Phương thức khởi tạo
+    public function __construct(){
+        $this->connection = new Model();
     }
-
+    // Thực hiện truy vấn
+    // Lấy nhiều bản ghi
+    public function getAllProducts(){
+        $sql = "SELECT * FROM {$this->table}";
+        $this->connection->setSQL($sql);
+        return $this->connection->all();
+    }
+    // Lấy bản ghi theo id (Truyền vào)
+    public function getIDProducts($id){
+        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
+        $this->connection->setSQL($sql);
+        return $this->connection->first([$id]);
+    }
+    // Thực hiện thao tác
+    // Thêm 
+    public function addProduct($id, $tenSP, $gia, $moTa){
+        $sql = "INSERT INTO products VALUES (?,?,?,?)";
+        $this->connection->setSQL($sql);
+        return $this->connection->execute([$id, $tenSP, $gia, $moTa]);
+    }
+    // Sửa
+    public function editProduct($id, $tenSP, $gia, $moTa){
+        $sql = "UPDATE products SET ten_san_pham =?, gia =?, mo_ta =? WHERE id =?";
+        $this->connection->setSQL($sql);
+        return $this->connection->execute([$tenSP, $gia, $moTa, $id]);
+    }
+    // Xóa
+    public function deleteProduct($id){
+        $sql = "DELETE FROM products WHERE id =?";
+        $this->connection->setSQL($sql);
+        return $this->connection->execute([$id]);
+    }
 }
 ?>
