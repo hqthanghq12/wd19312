@@ -3,9 +3,13 @@
 // $conn = new Product();
 // $conn->getConnection();
 // Test Model
-include 'app/Models/Model.php';
-include 'app/Models/Product.php';
-use App\Models\Product;
+// include 'app/Models/Model.php';
+// include 'app/Models/Product.php';
+include __DIR__ . '/vendor/autoload.php';
+// Xử lý kết nối ENV
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
+$dotenv->load();
+// use App\Models\Product;
 // $model = new Model();
 // Test getConnection
 // $model->getConnection();
@@ -29,7 +33,7 @@ use App\Models\Product;
 // $model->setSQL($sql); // Đưa câu lệnh SQL muốn thực thi vào trước
 // var_dump($model->first([1])); // -> lấy thành công giá trị
 // Test Product
-$product = new Product();
+// $product = new Product();
 // var_dump($product->getAllProducts()); // Test Product truy nhiều bản ghi
 // var_dump($product->getIDProducts(1)) // Test Product truy 1 bản ghi
 // Thêm sản phẩm
@@ -40,5 +44,8 @@ $product = new Product();
 // var_dump($product->getAllProducts());
 //  Xóa sản phẩm
 // $product->deleteProduct(1);
-var_dump($product->getAllProducts());
+// var_dump($product->getAllProducts());
+use App\Controllers\CategoryController;
+$cate = new CategoryController();
+$cate->index()
 ?>

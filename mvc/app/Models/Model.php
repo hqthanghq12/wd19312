@@ -9,13 +9,13 @@ class Model{
     // Kết nối CSDL
     // Thuộc tính 
     // Thuộc tính giúp kết nối CSDL
-    private $host = "localhost"; 
+    // private $host = "localhost"; 
     // Địa chỉ IP của máy chủ chứa CSDL (có thể thay bằng IP)
-    private $dbname = "wd19312";
+    // private $dbname = "wd19312";
     // Tên CSDL
-    private $username = "root";
+    // private $username = "root";
     // Tên đăng nhập CSDL
-    private $password = "";
+    // private $password = "";
     // Mật khẩu CSDL
     // Thuộc tính kết nối CSDL
     private $pdo;
@@ -35,10 +35,10 @@ class Model{
     // Phương thức giúp kết nối CSDL
     private function getConnection(){
         try{
-            $connection = new PDO("mysql:host={$this->host};
-            dbname={$this->dbname}", 
-            $this->username, 
-            $this->password,
+            $connection = new PDO("mysql:host={$_ENV['DB_HOST']};
+            dbname={$_ENV['DB_NAME']}", 
+            $_ENV['DB_USER'], 
+            $_ENV['DB_PASSWORD'],
             [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"

@@ -1,0 +1,17 @@
+{
+    "name": "admin/mvc",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "trungnt173",
+            "email": "trungnt173@fpt.edu.vn"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

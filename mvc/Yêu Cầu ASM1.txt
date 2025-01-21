@@ -1,0 +1,7 @@
+1, Xây dựng giao diện (Danh mục, Sản phẩm, Đơn hàng, Trang chủ) 
+-> Hiện thị, thêm, sửa
+- Tách thành các file (Layout + Nội dung) trong view 
+- Có thể gọi các file thông url với phương thức get (PHP 1 và DA 1)
+- Xây dựng class trong Controllers liên đến các phần 
+(Danh mục, Sản phẩm, Đơn hàng, Trang chủ)
+-> Lab 1234, ASM 1
