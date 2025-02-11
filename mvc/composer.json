@@ -13,6 +13,7 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^5.6",
-        "bramus/router": "^1.6"
+        "bramus/router": "^1.6",
+        "eftec/bladeone": "^4.17"
     }
 }
