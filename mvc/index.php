@@ -9,6 +9,7 @@ include __DIR__ . '/vendor/autoload.php';
 // Xử lý kết nối ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
 $dotenv->load();
+include __DIR__.'/routers/web.php';
 // use App\Models\Product;
 // $model = new Model();
 // Test getConnection
@@ -45,7 +46,7 @@ $dotenv->load();
 //  Xóa sản phẩm
 // $product->deleteProduct(1);
 // var_dump($product->getAllProducts());
-use App\Controllers\CategoryController;
-$cate = new CategoryController();
-$cate->index()
+// use App\Controllers\CategoryController;
+// $cate = new CategoryController();
+// $cate->index()
 ?>
