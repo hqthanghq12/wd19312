@@ -1,6 +1,8 @@
 <?php 
 // Viết router
 use Bramus\Router\Router;
+use App\Controllers\CategoryController;
+use App\Controllers\ProductController;
 $router = new Router();
 // Phương thức
 // get : Hiển thị dữ liệu (Hiện danh sách, hiện form, ...)
@@ -26,6 +28,8 @@ $router->mount('/admin', function() use ($router) {
 });
 // Tham chiếu sang controller
 // $router->phương thức('đường dẫn', 'namespace\tên class@tên phương thức');
-$router->get('category-list','App\Controllers\CategoryController@index');
+$router->get('category-list',CategoryController::class.'@index');
+// Viết route cho product
+$router->get('product', ProductController::class.'@index');
 $router->run();
 ?>

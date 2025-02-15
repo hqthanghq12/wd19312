@@ -24,16 +24,16 @@ class Product extends Model{
     }
     // Thực hiện thao tác
     // Thêm 
-    public function addProduct($id, $tenSP, $gia, $moTa){
-        $sql = "INSERT INTO products VALUES (?,?,?,?)";
+    public function addProduct($id, $tenSP, $gia, $hinhAnh, $moTa){
+        $sql = "INSERT INTO products VALUES (?,?,?,?,?)";
         $this->connection->setSQL($sql);
-        return $this->connection->execute([$id, $tenSP, $gia, $moTa]);
+        return $this->connection->execute([$id, $tenSP, $gia, $hinhAnh, $moTa]);
     }
     // Sửa
-    public function editProduct($id, $tenSP, $gia, $moTa){
-        $sql = "UPDATE products SET ten_san_pham =?, gia =?, mo_ta =? WHERE id =?";
+    public function editProduct($id, $tenSP, $gia, $hinhAnh, $moTa){
+        $sql = "UPDATE products SET ten_san_pham =?, gia =?, hinh_anh = ?, mo_ta =? WHERE id =?";
         $this->connection->setSQL($sql);
-        return $this->connection->execute([$tenSP, $gia, $moTa, $id]);
+        return $this->connection->execute([$tenSP, $gia, $hinhAnh, $moTa, $id]);
     }
     // Xóa
     public function deleteProduct($id){
