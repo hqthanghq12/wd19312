@@ -1,6 +1,7 @@
 @extends('layout_admin')
 @section('content')
-    <h1>Đây là blade</h1>
+    <h1>Danh sách sản phẩm</h1>
+    <a href="{{route('product-add')}}"><button>Thêm sản phẩm</button></a>
     <table>
         <tr>
             <th>ID</th>

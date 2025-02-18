@@ -31,5 +31,7 @@ $router->mount('/admin', function() use ($router) {
 $router->get('category-list',CategoryController::class.'@index');
 // Viết route cho product
 $router->get('product', ProductController::class.'@index');
+$router->get('product-add', ProductController::class.'@create');
+$router->post('product-store', ProductController::class.'@store');
 $router->run();
 ?>
