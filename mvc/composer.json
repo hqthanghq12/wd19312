@@ -6,7 +6,8 @@
         },
         "files": [
             "storage/config/router.php",
-            "storage/config/notification.php"
+            "storage/config/notification.php",
+            "storage/config/helpers.php"
         ]
     },
     "authors": [

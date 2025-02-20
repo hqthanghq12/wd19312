@@ -28,11 +28,16 @@
             <td>{{$value->id}}</td>
             <td>{{$value->ten_san_pham}}</td>
             <td>{{$value->gia}}</td>
-            <td>{{$value->hinh_anh}}</td>
+            <td>
+                <img src="{{storage($value->hinh_anh)}}" 
+                alt="" width="100px">
+            </td>
             <td>{{$value->mo_ta}}</td>
             <td>
-                <a>Sửa</a>
-                <a>Xóa</a>
+                <a href="{{route('product-edit/{id}', 
+                ['id'=>$value->id])}}">Sửa</a>
+                <a href="{{route('product-delete/{id}', 
+                ['id'=>$value->id])}}">Xóa</a>
             </td>
         </tr>
         @endforeach
