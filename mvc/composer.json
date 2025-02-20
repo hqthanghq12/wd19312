@@ -5,7 +5,8 @@
             "App\\": "app/"
         },
         "files": [
-            "storage/config/router.php"
+            "storage/config/router.php",
+            "storage/config/notification.php"
         ]
     },
     "authors": [

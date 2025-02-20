@@ -1,6 +1,18 @@
 @extends('layout_admin')
 @section('content')
     <h1>Danh sách sản phẩm</h1>
+    @if(isset($_SESSION['errors']) && isset($_GET['msg']))
+    <div>
+        <ul>
+        @foreach($_SESSION['errors'] as $value)
+            <li>{{$value}}</li>
+         @endforeach
+        </ul>
+    </div>
+@endif
+@if(isset($_SESSION['success']) && isset($_GET['msg']))
+    <div>{{$_SESSION['success']}}</div>
+@endif
     <a href="{{route('product-add')}}"><button>Thêm sản phẩm</button></a>
     <table>
         <tr>

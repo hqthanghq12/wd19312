@@ -5,6 +5,7 @@
 // Test Model
 // include 'app/Models/Model.php';
 // include 'app/Models/Product.php';
+session_start();
 include __DIR__ . '/vendor/autoload.php';
 // Xử lý kết nối ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/');
